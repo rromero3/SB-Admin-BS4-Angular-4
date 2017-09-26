@@ -6,6 +6,7 @@ yarn-error.log
 
 # dependencies
 /node_modules
+/firebase-hosting
 
 # IDEs and editors
 /.idea

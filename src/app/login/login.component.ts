@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AF } from "../providers/af";
+import { Routes, RouterModule, Router} from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 @Component({
     selector: 'app-login',
@@ -10,14 +13,25 @@ import { routerTransition } from '../router.animations';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(public router: Router) {
+    constructor(db: AngularFireDatabase, public router: Router, public afService: AF) {
     }
 
     ngOnInit() {
     }
 
     onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
+        this.afService.loginWithGoogle();
+        this.afService.user.subscribe(
+                (auth) => {
+                    if(auth == null) {
+                    }
+                    else
+                    {
+                        if (this.router.url === '/') {
+                            this.router.navigate(['/dashboard']);
+                         }
+                    }
+            });
     }
 
 }

@@ -6,11 +6,16 @@
     "apps": [
         {
             "root": "src",
-            "outDir": "dist",
+            "outDir": "firebase-hosting/dist",
             "assets": [
                 "assets",
                 "favicon.ico",
-                ".htaccess"
+                ".htaccess",
+                "manifest.json",
+                "empro-small-logo.jpg",
+                "empro-small-logo.png",
+                "background.html",
+                "background.js"
             ],
             "index": "index.html",
             "main": "main.ts",
