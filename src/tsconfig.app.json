@@ -4,7 +4,10 @@
         "outDir": "../out-tsc/app",
         "module": "es2015",
         "baseUrl": "",
-        "types": []
+        "types": [
+        //(various types, e.g. jquery, core-js),
+        "chrome"
+                 ]
     },
     "exclude": [
         "test.ts",

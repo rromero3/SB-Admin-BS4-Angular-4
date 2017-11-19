@@ -1,13 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { AF } from "../../../providers/af";
 
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+
+export class SidebarComponent  {
     isActive = false;
     showMenu = '';
+
+    constructor(private afService: AF) {
+        
+    }
+
+    ngOnInit() {}
+
     eventCalled() {
         this.isActive = !this.isActive;
     }

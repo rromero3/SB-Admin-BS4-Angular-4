@@ -22,16 +22,17 @@ export class AppComponent {
         translate.use(browserLang.match(/en|fr|ur|es|it|fa/) ? browserLang : 'en');
 
         this.title = "Empro extension";
+        console.log(localStorage);
         this.afService.user.subscribe(
 				(auth) => {
 		      		if(auth == null) {
-		 				console.log("Not Logged in.");
+		 				console.log("from app component Not Logged in.");
 		       		    this.router.navigate(['login']);
 		          		this.isLoggedIn = false;
 		          		localStorage.setItem('isLoggedin', 'false');
 		      		}
 		      		else{
-						console.log("Successfully Logged in.");
+						console.log(" from app component  Successfully Logged in.");
 		     	     	this.isLoggedIn = true;
 		       	 	 	localStorage.setItem('isLoggedin', 'true');
 
@@ -50,17 +51,13 @@ export class AppComponent {
 				          
 		      		}
 		      });
-    
-    this.isLoggedIn = true;
     }
 
     login() {
     this.afService.loginWithGoogle();
-    this.isLoggedIn = false;
   }
 
   logout() {
     this.afService.logout();
-    this.isLoggedIn = false;
   }
 }

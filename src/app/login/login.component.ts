@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../router.animations';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { AF } from "../providers/af";
 import { Routes, RouterModule, Router} from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { AF } from "../providers/af";
 
 @Component({
     selector: 'app-login',
@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
     }
 
     onLoggedin() {
-        this.afService.loginWithGoogle();
+        
+        this.afService.startSignInWithGoogle();
         this.afService.user.subscribe(
                 (auth) => {
                     if(auth == null) {

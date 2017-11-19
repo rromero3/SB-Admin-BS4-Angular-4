@@ -1,0 +1,73 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1>Documentos autorizados</h1>
+        <hr>
+    </div>
+    <div class="card-block table-responsive">
+    <table class="table table-striped card-block table table-hover">
+        <thead>
+          <tr>
+            <th>Documento</th>
+            <th>Proyecto</th>
+            <th>Encargado</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+             <th>Total</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let authDocument of authorizationDocuments | async" >
+            <td>{{authDocument.documentIdentifier}}</td>
+            <td>{{authDocument.projectName}}</td>
+            <td>{{authDocument.document.owner}}</td>
+            <td>{{authDocument.documentDate}}</td>
+            <td>{{authDocument.documentType}} {{authDocument.action}}</td>
+            <td>{{authDocument.documentValue}}</td>
+            <td> 
+              <a href="{{authDocument.documentUrl}}" target="_blank" class="btn btn-sm btn-info m-1">Abrir Documento</a>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+    <!--
+
+      <div class="panel panel-default">
+      
+          <div class="card mb-1" *ngFor="let authDocument of authorizationDocuments | async" class="col-sm-4">
+
+                  <div class="card-header ">
+                      {{authDocument.documentIdentifier}}  
+                      <small class="text-info pull-right text-muted"><i class="fa fa-file-o fa-fw"></i> {{authDocument.documentType}}</small>
+
+                  </div>
+                  <div class="card-body">
+                     
+
+                        <div class="header">
+                            <strong class="primary-font">{{authDocument.documentOwner}}</strong>
+                            <small class="pull-right text-muted">
+                                <i class="fa fa-clock-o fa-fw"></i> {{authDocument.documentDate}}
+                            </small>
+                            
+                        </div>
+                        <small>
+                           {{authDocument.projectName}}
+                        </small>
+                        <p class="card-text">
+                            {{authDocument.document.documentNotes}}
+                        </p>
+                      
+
+                     <a href="{{authDocument.documentUrl}}" target="_blank" class="btn btn-sm btn-info m-1">Abrir Documento</a>
+                  </div>
+                  <div class="card-footer h-50">
+                      <small class="text-muted">Accion Requerida: </small>
+                  </div>
+          </div>
+        </div>
+  -->
+
+</div>
